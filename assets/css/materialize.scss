@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+$font-stack: -apple-system, BlinkMacSystemFont, 'Open Sans', "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+$gutter-width: 20px;
+
+// Color
+@import "materialize-css/sass/components/color-variables";
+@import "materialize-css/sass/components/color-classes";
+
+// Variables;
+@import "materialize-css/sass/components/variables";
+
+// Reset
+@import "materialize-css/sass/components/normalize";
+
+// components
+@import "materialize-css/sass/components/global";
+@import "materialize-css/sass/components/grid";
+@import "materialize-css/sass/components/typography";
+
+// Remove Focus Boxes
+select:focus {
+  outline: $select-focus;
+}
+
+button:focus {
+  outline: none;
+  background-color: $button-background-focus;
+}
+
+label {
+  font-size: $label-font-size;
+  color: $input-border-color;
+}
+
+/* Radio Buttons
+   ========================================================================== */
+
+// Remove default Radio Buttons
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+[type="radio"]:not(:checked) + span,
+[type="radio"]:checked + span {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  display: inline-block;
+  transition: .28s ease;
+  user-select: none;
+}
+
+[type="radio"] + span:before,
+[type="radio"] + span:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  z-index: 0;
+  transition: .28s ease;
+}
+
+/* Unchecked styles */
+[type="radio"]:not(:checked) + span:before,
+[type="radio"]:not(:checked) + span:after,
+[type="radio"]:checked + span:before,
+[type="radio"]:checked + span:after {
+  border-radius: 50%;
+}
+
+[type="radio"]:not(:checked) + span:before,
+[type="radio"]:not(:checked) + span:after {
+  border: 1px solid #2196F3;
+}
+
+[type="radio"]:not(:checked) + span:after {
+  transform: scale(0);
+}
+
+/* Checked styles */
+[type="radio"]:checked + span:before {
+  border: 1px solid #2196F3;
+}
+
+[type="radio"]:checked + span:after {
+  border: 1px solid #2196F3;
+  background-color: #2196F3;
+}
+
+[type="radio"]:checked + span:after {
+  transform: scale(.6);
+}
+
+/* Checkboxes
+   ========================================================================== */
+
+/* Remove default checkbox */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+// Checkbox Styles
+[type="checkbox"] {
+  // Text Label Style
+  + span {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    display: inline-block;
+    user-select: none;
+  }
+
+  /* checkbox aspect */
+  + span:before,
+  & + span:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    z-index: 0;
+    border: 1px solid #2196F3;
+    border-radius: 2px;
+    transition: .2s;
+  }
+}
+
+[type="checkbox"]:checked {
+  + span:before {
+    top: 2px;
+    left: 1px;
+    width: 7px;
+    height: 13px;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 2px solid #2196F3;
+    border-bottom: 2px solid #2196F3;
+    transform: rotate(45deg);
+    backface-visibility: hidden;
+    transform-origin: 100% 100%;
+  }
+}

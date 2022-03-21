@@ -3,9 +3,24 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
-    "start": "node .output/server/index.mjs"
+    "start": "node .output/server/index.mjs",
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:e2e": "jest test/e2e --forceExit",
+    "test:unit": "jest test/unit --forceExit"
   },
   "devDependencies": {
-    "nuxt3": "latest"
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@nuxt/test-utils": "^0.2.2",
+    "jest": "^27.5.1",
+    "node-sass": "^7.0.1",
+    "nuxt3": "latest",
+    "playwright": "^1.19.2",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0"
+  },
+  "dependencies": {
+    "materialize-css": "^1.0.0-rc.2",
+    "underscore": "^1.13.2"
   }
 }

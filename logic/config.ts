@@ -1,0 +1,1 @@
+export const API_Host: string = '//localhost:3000';
